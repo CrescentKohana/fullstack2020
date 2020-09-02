@@ -1,0 +1,87 @@
+title new note
+
+note over browser:
+User types a note to 
+the input box and clicks Save.
+end note
+
+browser->server: HTTP POST with form data {note=test string} https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+A new object is created with 
+the form data by the server
+end note
+
+server->browser: 302 redirect to /notes
+
+note over browser:
+Notes page is opened 
+followed by multiple GETs
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+JS is executed requesting 
+JSON data from the server
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [..., {content: "test string", date: "2020-09-02T13:32:13.656Z"}]
+
+note over browser:
+The page is rendered with 
+the note data from data.json
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server-->browser: favicon.ico
+
+
+title single page app
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+
+note over browser:
+JS is executed requesting 
+JSON data from the server
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: JSON data
+
+note over browser:
+The page is rendered 
+with the JSON data
+end note
+
+
+title single page app new note
+
+note over browser:
+The page has 
+already been loaded
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server:
+No redirections
+end note
+
+server-->browser: HTTP 201
+
+note over browser:
+Browser renders the data 
+with spa.js, no reload!
+end note

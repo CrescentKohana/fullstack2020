@@ -1,0 +1,56 @@
+### Get info
+GET http://localhost:3001/info
+
+### Get persons
+GET http://localhost:3001/api/persons/
+
+### Get person by id
+GET http://localhost:3001/api/persons/60d4b4a657de9748b48c299f
+
+### Delete person by id
+DELETE http://localhost:3001/api/persons/60d4d131f48afa4434098c86
+
+### New person
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Akiha",
+    "number": "33-11-3332221"
+}
+
+### Edit person
+PUT http://localhost:3001/api/persons/60d4bddbd3ddfe51f07cabd1 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Akiha",
+    "number": "33-11-444"
+}
+
+###
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": "33-11-333222"
+}
+
+### Error 400, missing number
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": ""
+}
+
+### Error 400, missing name
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "",
+    "number": "33-11-333222"
+}

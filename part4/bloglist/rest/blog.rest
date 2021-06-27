@@ -1,0 +1,43 @@
+### Get blogs
+GET http://localhost:3003/api/blogs/
+
+### Get blog by id
+GET http://localhost:3003/api/blogs/60d4b4a657de9748b48c299f
+
+### Delete blog by id
+DELETE http://localhost:3003/api/blogs/60d8e16004422408e4db9d7f
+Authorization: bearer token
+
+### New blog
+POST http://localhost:3003/api/blogs/ HTTP/1.1
+content-type: application/json
+Authorization: bearer token
+
+{
+    "title": "はちみつとおべろん",
+    "author": "奈須きのこ",
+    "url": "http://www.typemoon.org/bbb/diary/#13",
+    "likes": 50000,
+    "userId": "60d8bf56c3c6e94494b86e17"
+}
+
+### New blog #2
+POST http://localhost:3003/api/blogs/ HTTP/1.1
+content-type: application/json
+Authorization: bearer token
+
+{
+    "title": "Type wars",
+    "author": "Robert C. Martin",
+    "url": "http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html",
+    "likes": 22,
+    "userId": "60d8bf56c3c6e94494b86e17"
+}
+
+### Edit blog
+PUT http://localhost:3003/api/blogs/60d8828750f62840e4932bdc HTTP/1.1
+content-type: application/json
+
+{
+    "likes": 100000
+}

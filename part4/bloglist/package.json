@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "eslint": "^7.29.0",
     "jest": "^27.0.5",
     "nodemon": "^2.0.7",
     "supertest": "^6.1.3"

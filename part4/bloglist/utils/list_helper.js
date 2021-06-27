@@ -1,4 +1,4 @@
-const dummy = (blogs) => {
+const dummy = () => {
   return 1
 }
 
@@ -21,13 +21,13 @@ const mostBlogs = (blogs) => {
   blogs.forEach(blog => {
     const blogAmount = 1 + (authors.get(blog.author) || 0)
     authors.set(blog.author, blogAmount)
-  });
+  })
 
   const result = Array.from(authors.entries()).reduce(function(prev, current) {
     return (prev[1] > current[1]) ? prev : current
   })
 
-  return { "author": result[0], "blogs": result[1] }
+  return { 'author': result[0], 'blogs': result[1] }
 }
 
 const mostLikes = (blogs) => {
@@ -36,13 +36,13 @@ const mostLikes = (blogs) => {
   blogs.forEach(blog => {
     const likeAmount = blog.likes + (likes.get(blog.author) || 0)
     likes.set(blog.author, likeAmount)
-  });
+  })
 
   const result = Array.from(likes.entries()).reduce(function(prev, current) {
     return (prev[1] > current[1]) ? prev : current
   })
 
-  return { "author": result[0], "likes": result[1] }
+  return { 'author': result[0], 'likes': result[1] }
 }
 
 module.exports = {

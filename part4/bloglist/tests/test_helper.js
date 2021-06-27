@@ -4,7 +4,7 @@ const User = require('../models/user')
 const initialBlogs = require('./test_data/initial_blogs.json')
 
 const nonExistingId = async () => {
-  const blog = new Blog({ title: 'willremovethissoon', author: "person", url: "url", likes: 0 })
+  const blog = new Blog({ title: 'willremovethissoon', author: 'person', url: 'url', likes: 0 })
   await blog.save()
   await blog.remove()
   return blog._id.toString()

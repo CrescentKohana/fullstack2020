@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const listHelper = require('../utils/list_helper')
 const blogs = require('./test_data/mongo_blogs.json')
 

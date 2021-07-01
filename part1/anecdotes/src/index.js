@@ -7,9 +7,9 @@ const App = (props) => {
   const [mostVoted, setMostVoted] = useState(0)
 
   function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min) + min)
   }
 
   const nextAndecdote = () => setSelected(getRandomInt(0, props.anecdotes.length))
@@ -36,7 +36,7 @@ const App = (props) => {
 }
 
 const Anecdote = (props) => {
-  const voteString = (props.votes == 1) ? "vote" : "votes";
+  const voteString = (props.votes == 1) ? "vote" : "votes"
 
   return [
     <p>{props.anecdotes}</p>,
